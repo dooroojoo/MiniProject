@@ -1,0 +1,715 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:272), pid=6444, tid=0x0000000000001cc8
+#
+# JRE version: OpenJDK Runtime Environment (8.0_292-b10) (build 1.8.0_292-b10)
+# Java VM: OpenJDK 64-Bit Server VM (25.292-b10 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001db9e800):  JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=7368, stack(0x000000001f2f0000,0x000000001f3f0000)]
+
+Stack: [0x000000001f2f0000,0x000000001f3f0000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:    737  378 % !   4       sun.awt.image.PNGImageDecoder::produceImage @ 960 (1916 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x000000001fae0800 JavaThread "Image Fetcher 0" daemon [_thread_in_native, id=25624, stack(0x0000000026320000,0x0000000026420000)]
+  0x000000001fa6b000 JavaThread "AWT-Windows" daemon [_thread_in_native, id=24656, stack(0x0000000020340000,0x0000000020440000)]
+  0x000000001fa6a000 JavaThread "AWT-Shutdown" [_thread_blocked, id=23880, stack(0x0000000020240000,0x0000000020340000)]
+  0x000000001fa69000 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=24972, stack(0x00000000200d0000,0x00000000201d0000)]
+  0x000000001dc25000 JavaThread "Service Thread" daemon [_thread_blocked, id=9916, stack(0x000000001f5f0000,0x000000001f6f0000)]
+  0x000000001dbc1000 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=6800, stack(0x000000001f4f0000,0x000000001f5f0000)]
+  0x000000001dba7000 JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=19664, stack(0x000000001f3f0000,0x000000001f4f0000)]
+=>0x000000001db9e800 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=7368, stack(0x000000001f2f0000,0x000000001f3f0000)]
+  0x000000001dba1800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=14504, stack(0x000000001f1f0000,0x000000001f2f0000)]
+  0x000000001db8a000 JavaThread "Attach Listener" daemon [_thread_blocked, id=21164, stack(0x000000001f0f0000,0x000000001f1f0000)]
+  0x000000001db99000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=17348, stack(0x000000001eff0000,0x000000001f0f0000)]
+  0x000000001cb7e800 JavaThread "Finalizer" daemon [_thread_blocked, id=11160, stack(0x000000001ee60000,0x000000001ef60000)]
+  0x000000001cb7d000 JavaThread "Reference Handler" daemon [_thread_blocked, id=24684, stack(0x000000001ed60000,0x000000001ee60000)]
+  0x0000000003598000 JavaThread "main" [_thread_blocked, id=6980, stack(0x00000000033f0000,0x00000000034f0000)]
+
+Other Threads:
+  0x000000001db11800 VMThread [stack: 0x000000001ec60000,0x000000001ed60000] [id=7740]
+  0x000000001dc49800 WatcherThread [stack: 0x000000001f6f0000,0x000000001f7f0000] [id=4024]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000006ca200000, size: 3934 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 73728K, used 21957K [0x000000076e100000, 0x0000000773300000, 0x00000007c0000000)
+  eden space 63488K, 34% used [0x000000076e100000,0x000000076f671788,0x0000000771f00000)
+  from space 10240K, 0% used [0x0000000772900000,0x0000000772900000,0x0000000773300000)
+  to   space 10240K, 0% used [0x0000000771f00000,0x0000000771f00000,0x0000000772900000)
+ ParOldGen       total 167936K, used 0K [0x00000006ca200000, 0x00000006d4600000, 0x000000076e100000)
+  object space 167936K, 0% used [0x00000006ca200000,0x00000006ca200000,0x00000006d4600000)
+ Metaspace       used 9415K, capacity 9610K, committed 9856K, reserved 1058816K
+  class space    used 994K, capacity 1071K, committed 1152K, reserved 1048576K
+
+Card table byte_map: [0x0000000012a10000,0x00000000131c0000] byte_map_base: 0x000000000f3bf000
+
+Marking Bits: (ParMarkBitMap*) 0x00000000730020a0
+ Begin Bits: [0x0000000013ee0000, 0x0000000017c58000)
+ End Bits:   [0x0000000017c58000, 0x000000001b9d0000)
+
+Polling page: 0x0000000003050000
+
+CodeCache: size=245760Kb used=2113Kb max_used=2125Kb free=243646Kb
+ bounds [0x0000000003650000, 0x00000000038c0000, 0x0000000012650000]
+ total_blobs=797 nmethods=400 adapters=310
+ compilation: enabled
+
+Compilation events (250 events):
+Event: 0.486 Thread 0x000000001dbc1000  269       3       java.io.BufferedInputStream::getBufIfOpen (21 bytes)
+Event: 0.486 Thread 0x000000001dbc1000 nmethod 269 0x00000000037e68d0 code [0x00000000037e6a40, 0x00000000037e6c88]
+Event: 0.487 Thread 0x000000001dbc1000  270       3       com.sun.imageio.plugins.png.PNGImageReader::decodeSubFilter (54 bytes)
+Event: 0.487 Thread 0x000000001dbc1000 nmethod 270 0x00000000037e6d50 code [0x00000000037e6ec0, 0x00000000037e70f0]
+Event: 0.488 Thread 0x000000001dbc1000  271       3       sun.awt.image.ByteInterleavedRaster::putByteData (834 bytes)
+Event: 0.489 Thread 0x000000001dbc1000 nmethod 271 0x00000000037e7250 code [0x00000000037e7540, 0x00000000037e8cc8]
+Event: 0.489 Thread 0x000000001dbc1000  272 %     3       com.sun.imageio.plugins.png.PNGImageReader::decodeUpFilter @ 3 (53 bytes)
+Event: 0.489 Thread 0x000000001dbc1000 nmethod 272% 0x00000000037ea390 code [0x00000000037ea500, 0x00000000037ea7f0]
+Event: 0.489 Thread 0x000000001dbc1000  273       3       com.sun.imageio.plugins.png.PNGImageReader::decodeUpFilter (53 bytes)
+Event: 0.489 Thread 0x000000001dbc1000 nmethod 273 0x00000000037eaa10 code [0x00000000037eab80, 0x00000000037eadd0]
+Event: 0.489 Thread 0x000000001dbc1000  274       1       java.awt.image.Raster::getWidth (5 bytes)
+Event: 0.489 Thread 0x000000001dbc1000 nmethod 274 0x00000000037eafd0 code [0x00000000037eb120, 0x00000000037eb230]
+Event: 0.489 Thread 0x000000001dbc1000  275       1       java.awt.image.Raster::getHeight (5 bytes)
+Event: 0.489 Thread 0x000000001dbc1000 nmethod 275 0x00000000037eb290 code [0x00000000037eb3e0, 0x00000000037eb4f0]
+Event: 0.489 Thread 0x000000001dbc1000  276       1       sun.awt.image.ByteInterleavedRaster::getDataStorage (5 bytes)
+Event: 0.489 Thread 0x000000001dbc1000 nmethod 276 0x00000000037eb550 code [0x00000000037eb6a0, 0x00000000037eb7b0]
+Event: 0.489 Thread 0x000000001dbc1000  277  s    1       javax.imageio.ImageReader::abortRequested (5 bytes)
+Event: 0.489 Thread 0x000000001dbc1000 nmethod 277 0x00000000037eb810 code [0x00000000037eb960, 0x00000000037ebbd0]
+Event: 0.489 Thread 0x000000001dba7000  278 %     4       com.sun.imageio.plugins.png.PNGImageReader::decodeUpFilter @ 3 (53 bytes)
+Event: 0.490 Thread 0x000000001dbc1000  279       3       java.io.BufferedInputStream::read1 (108 bytes)
+Event: 0.490 Thread 0x000000001dba1800  280 %     4       sun.awt.image.ByteInterleavedRaster::putByteData @ 627 (834 bytes)
+Event: 0.490 Thread 0x000000001dbc1000 nmethod 279 0x00000000037ebc50 code [0x00000000037ebe60, 0x00000000037ec758]
+Event: 0.490 Thread 0x000000001dbc1000  281  s    3       java.io.BufferedInputStream::read (113 bytes)
+Event: 0.490 Thread 0x000000001db9e800  283 %     4       com.sun.imageio.plugins.png.PNGImageReader::decodeSubFilter @ 3 (54 bytes)
+Event: 0.490 Thread 0x000000001dbc1000 nmethod 281 0x00000000037ecb50 code [0x00000000037ecd20, 0x00000000037ed658]
+Event: 0.490 Thread 0x000000001dbc1000  282       3       com.sun.imageio.plugins.png.PNGImageReader::updateImageProgress (29 bytes)
+Event: 0.490 Thread 0x000000001dbc1000 nmethod 282 0x00000000037ed9d0 code [0x00000000037edb60, 0x00000000037edd88]
+Event: 0.492 Thread 0x000000001dba7000 nmethod 278% 0x00000000037f0f10 code [0x00000000037f1060, 0x00000000037f1378]
+Event: 0.493 Thread 0x000000001dbc1000  284       3       java.lang.invoke.MethodType$ConcurrentWeakInternSet$WeakEntry::equals (49 bytes)
+Event: 0.493 Thread 0x000000001db9e800 nmethod 283% 0x00000000037f14d0 code [0x00000000037f1620, 0x00000000037f18d8]
+Event: 0.493 Thread 0x000000001dbc1000 nmethod 284 0x00000000037f0610 code [0x00000000037f07a0, 0x00000000037f0e08]
+Event: 0.494 Thread 0x000000001dbc1000  286       3       sun.invoke.util.Wrapper::forBasicType (16 bytes)
+Event: 0.494 Thread 0x000000001dbc1000 nmethod 286 0x00000000037f0150 code [0x00000000037f02c0, 0x00000000037f0538]
+Event: 0.494 Thread 0x000000001dbc1000  285       3       java.lang.invoke.MethodType::toMethodDescriptorString (21 bytes)
+Event: 0.495 Thread 0x000000001dbc1000 nmethod 285 0x00000000037eecd0 code [0x00000000037eeee0, 0x00000000037ef9f8]
+Event: 0.495 Thread 0x000000001dba1800 nmethod 280% 0x00000000037ee010 code [0x00000000037ee160, 0x00000000037ee8f8]
+Event: 0.502 Thread 0x000000001dbc1000  287       3       sun.reflect.ClassFileAssembler::emitByte (11 bytes)
+Event: 0.502 Thread 0x000000001dbc1000 nmethod 287 0x00000000037f4750 code [0x00000000037f48c0, 0x00000000037f4a88]
+Event: 0.502 Thread 0x000000001dbc1000  288       3       sun.reflect.ByteVectorImpl::add (38 bytes)
+Event: 0.502 Thread 0x000000001dbc1000 nmethod 288 0x00000000037f4290 code [0x00000000037f4400, 0x00000000037f4628]
+Event: 0.503 Thread 0x000000001dbc1000  289       3       sun.reflect.ClassFileAssembler::emitShort (24 bytes)
+Event: 0.504 Thread 0x000000001dbc1000 nmethod 289 0x00000000037f3bd0 code [0x00000000037f3d60, 0x00000000037f40b8]
+Event: 0.504 Thread 0x000000001dbc1000  290       3       sun.reflect.ClassFileAssembler::cpi (22 bytes)
+Event: 0.504 Thread 0x000000001dbc1000 nmethod 290 0x00000000037f3750 code [0x00000000037f38c0, 0x00000000037f3b08]
+Event: 0.505 Thread 0x000000001dbc1000  291       3       sun.misc.MetaIndex::mayContain (51 bytes)
+Event: 0.505 Thread 0x000000001dbc1000 nmethod 291 0x00000000037f2c50 code [0x00000000037f2e00, 0x00000000037f3498]
+Event: 0.505 Thread 0x000000001dbc1000  293       3       java.lang.String::indexOf (25 bytes)
+Event: 0.505 Thread 0x000000001dbc1000 nmethod 293 0x00000000037f2810 code [0x00000000037f2980, 0x00000000037f2b48]
+Event: 0.505 Thread 0x000000001dbc1000  292   !   3       sun.misc.URLClassPath$JarLoader::getResource (85 bytes)
+Event: 0.506 Thread 0x000000001dbc1000 nmethod 292 0x00000000037f4dd0 code [0x00000000037f5000, 0x00000000037f5ab8]
+Event: 0.506 Thread 0x000000001dbc1000  294       1       java.net.URL::getHost (5 bytes)
+Event: 0.506 Thread 0x000000001dbc1000 nmethod 294 0x00000000037f2550 code [0x00000000037f26a0, 0x00000000037f27b0]
+Event: 0.507 Thread 0x000000001dbc1000  295       3       java.util.concurrent.ConcurrentHashMap::casTabAt (20 bytes)
+Event: 0.507 Thread 0x000000001dbc1000 nmethod 295 0x00000000037f1e10 code [0x00000000037f1f60, 0x00000000037f20f0]
+Event: 0.507 Thread 0x000000001dbc1000  296       3       java.lang.ClassLoader::findLoadedClass (16 bytes)
+Event: 0.507 Thread 0x000000001dbc1000 nmethod 296 0x00000000037f6010 code [0x00000000037f6180, 0x00000000037f63b8]
+Event: 0.508 Thread 0x000000001dbc1000  298   !   3       java.lang.ClassLoader::loadClass (122 bytes)
+Event: 0.508 Thread 0x000000001dbc1000 nmethod 298 0x00000000037f6450 code [0x00000000037f67c0, 0x00000000037f8b78]
+Event: 0.509 Thread 0x000000001dbc1000  300   !   3       sun.awt.AppContext::get (123 bytes)
+Event: 0.509 Thread 0x000000001dbc1000 nmethod 300 0x00000000037fa390 code [0x00000000037fa540, 0x00000000037fae68]
+Event: 0.509 Thread 0x000000001dbc1000  299       3       java.lang.ClassLoader::getClassLoadingLock (35 bytes)
+Event: 0.509 Thread 0x000000001dbc1000 nmethod 299 0x00000000037fb2d0 code [0x00000000037fb440, 0x00000000037fb808]
+Event: 0.514 Thread 0x000000001dbc1000  302       3       sun.invoke.util.BytecodeDescriptor::unparseSig (75 bytes)
+Event: 0.515 Thread 0x000000001dbc1000 nmethod 302 0x00000000037fc9d0 code [0x00000000037fccc0, 0x00000000037fe4b8]
+Event: 0.515 Thread 0x000000001dbc1000  307       3       sun.invoke.util.VerifyAccess::isTypeVisible (118 bytes)
+Event: 0.515 Thread 0x000000001dba1800  313       4       sun.misc.ASCIICaseInsensitiveComparator::compare (126 bytes)
+Event: 0.515 Thread 0x000000001db9e800  312       4       sun.misc.ASCIICaseInsensitiveComparator::compare (13 bytes)
+Event: 0.516 Thread 0x000000001dbc1000 nmethod 307 0x00000000037ff310 code [0x00000000037ff660, 0x00000000038015d8]
+Event: 0.516 Thread 0x000000001dbc1000  314       3       java.awt.image.IndexColorModel::getRGB (12 bytes)
+Event: 0.516 Thread 0x000000001dbc1000 nmethod 314 0x0000000003802390 code [0x00000000038024e0, 0x0000000003802670]
+Event: 0.516 Thread 0x000000001dbc1000  308       3       java.lang.invoke.LambdaForm$Name::initIndex (26 bytes)
+Event: 0.516 Thread 0x000000001dbc1000 nmethod 308 0x0000000003802750 code [0x00000000038028a0, 0x0000000003802a90]
+Event: 0.516 Thread 0x000000001dbc1000  315       1       java.awt.image.IndexColorModel::getRGB (12 bytes)
+Event: 0.516 Thread 0x000000001dbc1000 nmethod 315 0x0000000003802b10 code [0x0000000003802c60, 0x0000000003802d90]
+Event: 0.516 Thread 0x000000001dbc1000  310       3       java.util.Collections$UnmodifiableCollection$1::next (10 bytes)
+Event: 0.516 Thread 0x000000001dbc1000 nmethod 310 0x0000000003802e50 code [0x0000000003802fc0, 0x00000000038031e8]
+Event: 0.516 Thread 0x000000001dbc1000  303       3       jdk.internal.org.objectweb.asm.Item::<init> (5 bytes)
+Event: 0.516 Thread 0x000000001dbc1000 nmethod 303 0x0000000003803290 code [0x00000000038033e0, 0x0000000003803590]
+Event: 0.516 Thread 0x000000001dbc1000  309       3       java.lang.String::indexOf (7 bytes)
+Event: 0.516 Thread 0x000000001dbc1000 nmethod 309 0x0000000003803650 code [0x00000000038037c0, 0x0000000003803a48]
+Event: 0.516 Thread 0x000000001dbc1000  311       3       java.lang.invoke.LambdaForm$BasicType::basicType (172 bytes)
+Event: 0.517 Thread 0x000000001dbc1000 nmethod 311 0x0000000003803bd0 code [0x0000000003803e20, 0x0000000003804c38]
+Event: 0.517 Thread 0x000000001dbc1000  304       3       java.lang.Math::max (11 bytes)
+Event: 0.517 Thread 0x000000001dbc1000 nmethod 304 0x0000000003805350 code [0x00000000038054a0, 0x0000000003805630]
+Event: 0.517 Thread 0x000000001dbc1000  316       3       sun.awt.image.SunWritableRaster::markDirty (8 bytes)
+Event: 0.517 Thread 0x000000001dba1800 nmethod 313 0x0000000003808550 code [0x00000000038086a0, 0x0000000003808958]
+Event: 0.518 Thread 0x000000001dbc1000 nmethod 316 0x00000000038080d0 code [0x0000000003808240, 0x0000000003808490]
+Event: 0.518 Thread 0x000000001dbc1000  317       3       sun.java2d.StateTrackableDelegate::markDirty (6 bytes)
+Event: 0.518 Thread 0x000000001dbc1000 nmethod 317 0x0000000003807d90 code [0x0000000003807ee0, 0x0000000003808050]
+Event: 0.518 Thread 0x000000001dbc1000  318  s    3       java.io.BufferedInputStream::read (49 bytes)
+Event: 0.518 Thread 0x000000001db9e800 nmethod 312 0x0000000003806150 code [0x00000000038062a0, 0x0000000003806598]
+Event: 0.518 Thread 0x000000001dbc1000 nmethod 318 0x0000000003805850 code [0x00000000038059e0, 0x0000000003805f58]
+Event: 0.518 Thread 0x000000001dbc1000  319       1       java.lang.Boolean::booleanValue (5 bytes)
+Event: 0.518 Thread 0x000000001dbc1000 nmethod 319 0x0000000003807ad0 code [0x0000000003807c20, 0x0000000003807d30]
+Event: 0.520 Thread 0x000000001dbc1000  320   !   3       sun.awt.image.ImageRepresentation::setPixels (1055 bytes)
+Event: 0.523 Thread 0x000000001dbc1000 nmethod 320 0x000000000380a590 code [0x000000000380aac0, 0x000000000380ee78]
+Event: 0.523 Thread 0x000000001dbc1000  322   !   3       sun.awt.image.ImageDecoder::nextConsumer (69 bytes)
+Event: 0.523 Thread 0x000000001dbc1000 nmethod 322 0x0000000003807250 code [0x00000000038073e0, 0x0000000003807910]
+Event: 0.523 Thread 0x000000001dbc1000  323       1       sun.awt.image.ImageWatched$Link::newInfo (2 bytes)
+Event: 0.523 Thread 0x000000001dbc1000 nmethod 323 0x0000000003806f90 code [0x00000000038070e0, 0x00000000038071f0]
+Event: 0.523 Thread 0x000000001dbc1000  324       1       sun.awt.image.ImageWatched$AccWeakReference::access$000 (5 bytes)
+Event: 0.523 Thread 0x000000001dbc1000 nmethod 324 0x0000000003806cd0 code [0x0000000003806e20, 0x0000000003806f10]
+Event: 0.523 Thread 0x000000001dbc1000  325 % !   3       sun.awt.image.PNGImageDecoder::produceImage @ 960 (1916 bytes)
+Event: 0.523 Thread 0x000000001dba7000  326 % !   4       sun.awt.image.ImageRepresentation::setPixels @ 732 (1055 bytes)
+Event: 0.527 Thread 0x000000001dbc1000 nmethod 325% 0x0000000003811f90 code [0x0000000003812760, 0x0000000003819018]
+Event: 0.527 Thread 0x000000001dbc1000  328       3       java.lang.invoke.DirectMethodHandle::internalMemberName (8 bytes)
+Event: 0.527 Thread 0x000000001dbc1000 nmethod 328 0x0000000003806890 code [0x0000000003806a00, 0x0000000003806c30]
+Event: 0.527 Thread 0x000000001dbc1000  330   !   3       sun.awt.image.PNGImageDecoder::produceImage (1916 bytes)
+Event: 0.530 Thread 0x000000001dba7000 nmethod 326% 0x0000000003824710 code [0x00000000038248a0, 0x0000000003825238]
+Event: 0.531 Thread 0x000000001dbc1000 
+
+Event: 0.531 Thread 0x000000001dbc1000  321       1       sun.awt.image.FileImageSource::checkSecurity (2 bytes)
+Event: 0.531 Thread 0x000000001dbc1000 nmethod 321 0x0000000003809ed0 code [0x000000000380a020, 0x000000000380a130]
+Event: 0.531 Thread 0x000000001dbc1000  327       3       java.lang.Boolean::valueOf (14 bytes)
+Event: 0.531 Thread 0x000000001dbc1000 nmethod 327 0x0000000003809b90 code [0x0000000003809ce0, 0x0000000003809e70]
+Event: 0.531 Thread 0x000000001dbc1000  329       3       sun.awt.image.PNGImageDecoder::filterRow (459 bytes)
+Event: 0.531 Thread 0x000000001db9e800  337 % !   4       sun.awt.image.PNGImageDecoder::produceImage @ 960 (1916 bytes)
+Event: 0.531 Thread 0x000000001dbc1000 nmethod 329 0x0000000003822790 code [0x00000000038229e0, 0x0000000003823788]
+Event: 0.531 Thread 0x000000001dbc1000  331       3       sun.awt.image.PNGImageDecoder::sendPixels (44 bytes)
+Event: 0.532 Thread 0x000000001dbc1000 nmethod 331 0x0000000003809690 code [0x0000000003809800, 0x0000000003809ac8]
+Event: 0.532 Thread 0x000000001dbc1000  333       3       java.awt.ImageMediaEntry::parseflags (31 bytes)
+Event: 0.532 Thread 0x000000001dbc1000 nmethod 333 0x0000000003809250 code [0x00000000038093c0, 0x0000000003809610]
+Event: 0.532 Thread 0x000000001dbc1000  334       3       sun.awt.image.ImageWatched$WeakLink::newInfo (78 bytes)
+Event: 0.532 Thread 0x000000001dbc1000 nmethod 334 0x0000000003825910 code [0x0000000003825aa0, 0x00000000038260f8]
+Event: 0.532 Thread 0x000000001dbc1000  335       3       sun.awt.image.ImageWatched$WeakLink::update (39 bytes)
+Event: 0.532 Thread 0x000000001dbc1000 nmethod 335 0x00000000038262d0 code [0x00000000038264a0, 0x0000000003826d18]
+Event: 0.532 Thread 0x000000001dbc1000  336       3       java.lang.invoke.LambdaForm$MH/563200740::linkToTargetMethod (19 bytes)
+Event: 0.532 Thread 0x000000001dbc1000 nmethod 336 0x0000000003827110 code [0x0000000003827280, 0x00000000038276f8]
+Event: 0.533 Thread 0x000000001dbc1000  338  s    3       sun.awt.image.InputStreamImageSource::doneDecoding (25 bytes)
+Event: 0.534 Thread 0x000000001dbc1000 nmethod 338 0x0000000003808c90 code [0x0000000003808e00, 0x0000000003809188]
+Event: 0.534 Thread 0x000000001dbc1000  340       3       sun.awt.image.ImageDecoder::setPixels (58 bytes)
+Event: 0.534 Thread 0x000000001dbc1000 nmethod 340 0x0000000003827810 code [0x00000000038279c0, 0x0000000003828228]
+Event: 0.534 Thread 0x000000001dbc1000  339       3       sun.awt.image.InputStreamImageSource::latchConsumers (6 bytes)
+Event: 0.534 Thread 0x000000001dbc1000 nmethod 339 0x00000000038285d0 code [0x0000000003828740, 0x0000000003828bc8]
+Event: 0.534 Thread 0x000000001dbc1000  341       3       java.util.zip.InflaterInputStream::ensureOpen (18 bytes)
+Event: 0.534 Thread 0x000000001dbc1000 nmethod 341 0x0000000003828cd0 code [0x0000000003828e40, 0x0000000003829088]
+Event: 0.535 Thread 0x000000001dbc1000  342       3       java.awt.image.ReplicateScaleFilter::setPixels (229 bytes)
+Event: 0.535 Thread 0x000000001dbc1000 nmethod 342 0x0000000003829150 code [0x0000000003829320, 0x0000000003829cf8]
+Event: 0.538 Thread 0x000000001dba7000  343   !   4       sun.awt.image.ImageRepresentation::setPixels (1055 bytes)
+Event: 0.541 Thread 0x000000001dbc1000  344       1       java.beans.PropertyChangeEvent::getPropertyName (5 bytes)
+Event: 0.541 Thread 0x000000001dbc1000 nmethod 344 0x000000000382a390 code [0x000000000382a4e0, 0x000000000382a5f0]
+Event: 0.544 Thread 0x000000001dbc1000  345       3       java.util.zip.ZStreamRef::address (5 bytes)
+Event: 0.545 Thread 0x000000001dbc1000 nmethod 345 0x000000000382a650 code [0x000000000382a7a0, 0x000000000382a8f0]
+Event: 0.549 Thread 0x000000001dba7000 nmethod 343 0x0000000003831590 code [0x0000000003831740, 0x00000000038329d8]
+Event: 0.549 Thread 0x000000001db9e800 nmethod 337% 0x0000000003833ad0 code [0x0000000003833de0, 0x0000000003835de8]
+Event: 0.549 Thread 0x000000001dbc1000  346       3       sun.awt.image.ImageWatched$WeakLink$$Lambda$17/1882537257::<init> (44 bytes)
+Event: 0.549 Thread 0x000000001dbc1000 nmethod 346 0x0000000003831150 code [0x00000000038312a0, 0x00000000038314b0]
+Event: 0.549 Thread 0x000000001dbc1000  347       3       sun.awt.image.ImageWatched$WeakLink$$Lambda$17/1882537257::run (32 bytes)
+Event: 0.549 Thread 0x000000001dbc1000 nmethod 347 0x0000000003830b10 code [0x0000000003830ca0, 0x0000000003831008]
+Event: 0.549 Thread 0x000000001dbc1000  348       3       sun.awt.image.ImageWatched$WeakLink::lambda$update$0 (19 bytes)
+Event: 0.549 Thread 0x000000001dbc1000 nmethod 348 0x00000000038305d0 code [0x0000000003830740, 0x0000000003830a08]
+Event: 0.549 Thread 0x000000001dbc1000  349       3       java.awt.ImageMediaEntry::imageUpdate (51 bytes)
+Event: 0.550 Thread 0x000000001dbc1000 nmethod 349 0x000000000382f890 code [0x000000000382fa40, 0x0000000003830328]
+Event: 0.550 Thread 0x000000001dbc1000  350       1       java.beans.PropertyChangeEvent::getOldValue (5 bytes)
+Event: 0.550 Thread 0x000000001dbc1000 nmethod 350 0x000000000382f5d0 code [0x000000000382f720, 0x000000000382f830]
+Event: 0.550 Thread 0x000000001dbc1000  351       1       java.beans.PropertyChangeEvent::getNewValue (5 bytes)
+Event: 0.550 Thread 0x000000001dbc1000 nmethod 351 0x000000000382f310 code [0x000000000382f460, 0x000000000382f570]
+Event: 0.551 Thread 0x000000001dba1800  352   !   4       sun.awt.image.PNGImageDecoder::produceImage (1916 bytes)
+Event: 0.551 Thread 0x000000001dbc1000  353   !   3       java.util.zip.Inflater::inflate (113 bytes)
+Event: 0.552 Thread 0x000000001dbc1000 nmethod 353 0x000000000382e790 code [0x000000000382e940, 0x000000000382efb8]
+Event: 0.552 Thread 0x000000001dbc1000  354       3       java.util.zip.Inflater::ensureOpen (47 bytes)
+Event: 0.552 Thread 0x000000001dbc1000 nmethod 354 0x000000000382e210 code [0x000000000382e380, 0x000000000382e668]
+Event: 0.552 Thread 0x000000001dbc1000  355       1       java.awt.Component::getObjectLock (5 bytes)
+Event: 0.552 Thread 0x000000001dbc1000 nmethod 355 0x000000000382df50 code [0x000000000382e0a0, 0x000000000382e1b0]
+Event: 0.552 Thread 0x000000001dbc1000  356       3       sun.reflect.ClassFileAssembler::emitConstantPoolUTF8 (50 bytes)
+Event: 0.553 Thread 0x000000001dbc1000 nmethod 356 0x000000000382d210 code [0x000000000382d400, 0x000000000382da88]
+Event: 0.553 Thread 0x000000001dbc1000  357       3       sun.reflect.ByteVectorImpl::getLength (7 bytes)
+Event: 0.553 Thread 0x000000001dbc1000 nmethod 357 0x000000000382cf10 code [0x000000000382d060, 0x000000000382d1b0]
+Event: 0.553 Thread 0x000000001dbc1000  359       3       java.lang.ref.SoftReference::get (29 bytes)
+Event: 0.553 Thread 0x000000001dbc1000 nmethod 359 0x000000000382cb50 code [0x000000000382cca0, 0x000000000382ce90]
+Event: 0.553 Thread 0x000000001dbc1000  358   !   3       javax.swing.UIDefaults::getFromHashtable (239 bytes)
+Event: 0.553 Thread 0x000000001dbc1000 nmethod 358 0x000000000382a950 code [0x000000000382ac00, 0x000000000382c468]
+Event: 0.553 Thread 0x000000001dbc1000  361       3       javax.swing.SwingUtilities::appContextGet (8 bytes)
+Event: 0.553 Thread 0x000000001dbc1000 nmethod 361 0x0000000003837b10 code [0x0000000003837c80, 0x0000000003837eb8]
+Event: 0.553 Thread 0x000000001dbc1000  360       1       java.awt.Component::getParent_NoClientCode (5 bytes)
+Event: 0.553 Thread 0x000000001dbc1000 nmethod 360 0x0000000003837f90 code [0x00000000038380e0, 0x00000000038381f0]
+Event: 0.553 Thread 0x000000001dbc1000  362       1       java.lang.ThreadLocal::access$400 (5 bytes)
+Event: 0.553 Thread 0x000000001dbc1000 nmethod 362 0x0000000003838250 code [0x00000000038383a0, 0x0000000003838490]
+Event: 0.555 Thread 0x000000001dbc1000  363       3       sun.awt.image.ImageWatched::newInfo (25 bytes)
+Event: 0.555 Thread 0x000000001dba7000  364       4       sun.awt.image.PNGImageDecoder::filterRow (459 bytes)
+Event: 0.555 Thread 0x000000001dbc1000 nmethod 363 0x0000000003838510 code [0x0000000003838680, 0x0000000003838998]
+Event: 0.555 Thread 0x000000001dbc1000  365       3       sun.awt.image.IntegerInterleavedRaster::setDataElements (137 bytes)
+Event: 0.555 Thread 0x000000001dbc1000 nmethod 365 0x0000000003838a90 code [0x0000000003838c40, 0x0000000003839418]
+Event: 0.561 Thread 0x000000001dbc1000  366   !   3       java.util.zip.InflaterInputStream::read (138 bytes)
+Event: 0.562 Thread 0x000000001dbc1000 nmethod 366 0x0000000003839750 code [0x00000000038399c0, 0x000000000383aa08]
+Event: 0.562 Thread 0x000000001dbc1000  367       3       java.util.zip.InflaterInputStream::available (15 bytes)
+Event: 0.562 Thread 0x000000001dbc1000 nmethod 367 0x000000000383b2d0 code [0x000000000383b440, 0x000000000383b748]
+Event: 0.565 Thread 0x000000001dba7000 nmethod 364 0x000000000383ef10 code [0x000000000383f060, 0x000000000383fab8]
+Event: 0.565 Thread 0x000000001dbc1000  368       3       java.io.BufferedInputStream::getInIfOpen (21 bytes)
+Event: 0.565 Thread 0x000000001dbc1000 nmethod 368 0x000000000383ea90 code [0x000000000383ec00, 0x000000000383ee48]
+Event: 0.566 Thread 0x000000001dbc1000  369       3       java.io.BufferedInputStream::fill (233 bytes)
+Event: 0.566 Thread 0x000000001dbc1000 nmethod 369 0x000000000383d410 code [0x000000000383d680, 0x000000000383e598]
+Event: 0.567 Thread 0x000000001dbc1000  371       3       sun.awt.image.ImageDecoder::setPixels (58 bytes)
+Event: 0.567 Thread 0x000000001dbc1000 nmethod 371 0x000000000383c650 code [0x000000000383c800, 0x000000000383d068]
+Event: 0.567 Thread 0x000000001dbc1000  370       3       sun.awt.image.PNGImageDecoder::sendPixels (44 bytes)
+Event: 0.567 Thread 0x000000001dbc1000 nmethod 370 0x000000000383c150 code [0x000000000383c2c0, 0x000000000383c588]
+Event: 0.573 Thread 0x000000001dbc1000  373   !   3       sun.awt.image.ImageRepresentation::setPixels (535 bytes)
+Event: 0.574 Thread 0x000000001dbc1000 nmethod 373 0x000000000383fd50 code [0x00000000038400c0, 0x0000000003842498]
+Event: 0.585 Thread 0x000000001db9e800  374   !   4       sun.awt.image.ImageDecoder::nextConsumer (69 bytes)
+Event: 0.586 Thread 0x000000001db9e800 nmethod 374 0x0000000003846b90 code [0x0000000003846ce0, 0x0000000003847058]
+Event: 0.589 Thread 0x000000001dbc1000  375 % !   3       sun.awt.image.ImageRepresentation::getOpaqueRGBImage @ 54 (164 bytes)
+Event: 0.590 Thread 0x000000001dbc1000 nmethod 375% 0x00000000038451d0 code [0x0000000003845400, 0x0000000003846238]
+Event: 0.590 Thread 0x000000001dba7000  376 % !   4       sun.awt.image.ImageRepresentation::getOpaqueRGBImage @ 54 (164 bytes)
+Event: 0.592 Thread 0x000000001dba7000 nmethod 376% 0x0000000003848bd0 code [0x0000000003848d20, 0x0000000003849058]
+Event: 0.599 Thread 0x000000001dbc1000  377       3       java.awt.image.ReplicateScaleFilter::setPixels (229 bytes)
+Event: 0.599 Thread 0x000000001dbc1000 nmethod 377 0x0000000003843fd0 code [0x00000000038441a0, 0x0000000003844b58]
+Event: 0.622 Thread 0x000000001dba1800 nmethod 352 0x000000000384e790 code [0x000000000384edc0, 0x0000000003853a90]
+Event: 0.622 Thread 0x000000001db9e800  378 % !   4       sun.awt.image.PNGImageDecoder::produceImage @ 960 (1916 bytes)
+Event: 0.623 Thread 0x000000001dba7000  379   !   4       sun.awt.image.ImageRepresentation::getOpaqueRGBImage (164 bytes)
+Event: 0.625 Thread 0x000000001dbc1000  381   !   3       javax.swing.UIManager::getLAFState (62 bytes)
+Event: 0.625 Thread 0x000000001dbc1000 nmethod 381 0x0000000003847ad0 code [0x0000000003847ce0, 0x00000000038486e8]
+Event: 0.625 Thread 0x000000001dbc1000  382       3       java.lang.Class::reflectionData (49 bytes)
+Event: 0.625 Thread 0x000000001dbc1000 nmethod 382 0x00000000038472d0 code [0x0000000003847460, 0x0000000003847988]
+Event: 0.626 Thread 0x000000001dbc1000  384       1       java.net.URL::getPath (5 bytes)
+Event: 0.626 Thread 0x000000001dbc1000 nmethod 384 0x000000000383bad0 code [0x000000000383bc20, 0x000000000383bd30]
+Event: 0.626 Thread 0x000000001dbc1000  383       1       java.net.URL::getAuthority (5 bytes)
+Event: 0.626 Thread 0x000000001dbc1000 nmethod 383 0x000000000384e4d0 code [0x000000000384e620, 0x000000000384e730]
+Event: 0.627 Thread 0x000000001dbc1000  385       3       sun.reflect.UTF8::utf8Length (81 bytes)
+Event: 0.627 Thread 0x000000001dbc1000 nmethod 385 0x000000000384da50 code [0x000000000384dc00, 0x000000000384e248]
+Event: 0.627 Thread 0x000000001dbc1000  386       3       sun.reflect.ByteVectorImpl::get (26 bytes)
+Event: 0.627 Thread 0x000000001dbc1000 nmethod 386 0x000000000384d590 code [0x000000000384d700, 0x000000000384d928]
+Event: 0.627 Thread 0x000000001dbc1000  387       1       java.util.HashMap::afterNodeInsertion (1 bytes)
+Event: 0.627 Thread 0x000000001dbc1000 nmethod 387 0x000000000384d2d0 code [0x000000000384d420, 0x000000000384d530]
+Event: 0.637 Thread 0x000000001dba7000 nmethod 379 0x0000000003859e90 code [0x000000000385a0e0, 0x000000000385b150]
+Event: 0.654 Thread 0x000000001dba1800  388       4       java.io.BufferedInputStream::read1 (108 bytes)
+Event: 0.658 Thread 0x000000001dba1800 nmethod 388 0x0000000003849350 code [0x00000000038494c0, 0x0000000003849b58]
+Event: 0.662 Thread 0x000000001dbc1000  389 %     3       sun.awt.image.PNGImageDecoder::update_crc @ 3 (41 bytes)
+Event: 0.662 Thread 0x000000001dbc1000 nmethod 389% 0x000000000384cd10 code [0x000000000384ce80, 0x000000000384d110]
+Event: 0.689 Thread 0x000000001dba7000  390       4       java.awt.image.ReplicateScaleFilter::setPixels (229 bytes)
+Event: 0.694 Thread 0x000000001dbc1000  391 % !   3       sun.awt.image.ImageRepresentation::getOpaqueRGBImage @ 54 (164 bytes)
+Event: 0.695 Thread 0x000000001dbc1000 nmethod 391% 0x000000000384b010 code [0x000000000384b240, 0x000000000384c018]
+Event: 0.695 Thread 0x000000001dbc1000  394       3       java.lang.reflect.Array::newInstance (6 bytes)
+Event: 0.695 Thread 0x000000001dbc1000 nmethod 394 0x000000000384ac90 code [0x000000000384ae00, 0x000000000384af68]
+Event: 0.695 Thread 0x000000001dbc1000  392       3       sun.awt.AWTAccessor::getComponentAccessor (18 bytes)
+Event: 0.695 Thread 0x000000001dbc1000 nmethod 392 0x000000000384a810 code [0x000000000384a980, 0x000000000384abe8]
+Event: 0.695 Thread 0x000000001dbc1000  393       3       sun.awt.SunToolkit::targetToAppContext (30 bytes)
+Event: 0.696 Thread 0x000000001dbc1000 nmethod 393 0x000000000385cc90 code [0x000000000385ce20, 0x000000000385d3f8]
+Event: 0.696 Thread 0x000000001dbc1000  397       3       java.util.Arrays::copyOf (19 bytes)
+Event: 0.696 Thread 0x000000001dbc1000 nmethod 397 0x0000000003860b50 code [0x0000000003860cc0, 0x0000000003860fe8]
+Event: 0.696 Thread 0x000000001dbc1000  398       1       java.net.URL::getFile (5 bytes)
+Event: 0.696 Thread 0x000000001dba7000 nmethod 390 0x0000000003861110 code [0x00000000038612a0, 0x0000000003861bd8]
+Event: 0.696 Thread 0x000000001dbc1000 nmethod 398 0x000000000384a1d0 code [0x000000000384a320, 0x000000000384a430]
+Event: 0.697 Thread 0x000000001dbc1000  399       3       sun.awt.image.PNGImageDecoder::update_crc (41 bytes)
+Event: 0.697 Thread 0x000000001dbc1000 nmethod 399 0x00000000038605d0 code [0x0000000003860740, 0x0000000003860990]
+Event: 0.722 Thread 0x000000001dbc1000  400   !   3       sun.awt.image.ImageRepresentation::getOpaqueRGBImage (164 bytes)
+Event: 0.723 Thread 0x000000001dbc1000 nmethod 400 0x000000000385ee50 code [0x000000000385f060, 0x000000000385fd38]
+Event: 0.723 Thread 0x000000001dba1800  401 %     4       sun.awt.image.PNGImageDecoder::update_crc @ 3 (41 bytes)
+Event: 0.726 Thread 0x000000001dba1800 nmethod 401% 0x0000000003863d50 code [0x0000000003863ea0, 0x0000000003864278]
+Event: 0.731 Thread 0x000000001dba7000  402  s    4       java.io.BufferedInputStream::read (113 bytes)
+Event: 0.731 Thread 0x000000001dba1800  403  s    4       java.io.BufferedInputStream::read (49 bytes)
+Event: 0.734 Thread 0x000000001dba1800 nmethod 403 0x00000000038636d0 code [0x0000000003863820, 0x0000000003863c28]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (5 events):
+Event: 0.374 Thread 0x0000000003598000 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00000000037bd690 method=java.lang.String.equals(Ljava/lang/Object;)Z @ 8
+Event: 0.554 Thread 0x000000001fae0800 Uncommon trap: reason=predicate action=maybe_recompile pc=0x0000000003834e44 method=sun.awt.image.PNGImageDecoder.produceImage()V @ 960
+Event: 0.623 Thread 0x000000001fae0800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000003848f58 method=sun.awt.image.ImageRepresentation.getOpaqueRGBImage()Ljava/awt/image/BufferedImage; @ 57
+Event: 0.628 Thread 0x000000001fae0800 Uncommon trap: reason=predicate action=maybe_recompile pc=0x0000000003852af4 method=sun.awt.image.PNGImageDecoder.produceImage()V @ 870
+Event: 0.661 Thread 0x000000001fae0800 Uncommon trap: reason=range_check action=make_not_entrant pc=0x000000000385ae94 method=java.awt.image.DirectColorModel.setFields()V @ 65
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (12 events):
+Event: 0.252 Thread 0x0000000003598000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x000000076e107cc0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\
+Event: 0.252 Thread 0x0000000003598000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x000000076e107fa8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 4014
+Event: 0.315 Thread 0x0000000003598000 Exception <a 'java/security/PrivilegedActionException'> (0x000000076e1cbb68) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1530]
+Event: 0.315 Thread 0x0000000003598000 Exception <a 'java/security/PrivilegedActionException'> (0x000000076e1cbd78) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1530]
+Event: 0.315 Thread 0x0000000003598000 Exception <a 'java/security/PrivilegedActionException'> (0x000000076e1cfb18) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1530]
+Event: 0.315 Thread 0x0000000003598000 Exception <a 'java/security/PrivilegedActionException'> (0x000000076e1cfd28) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jvm.cpp, line 1530]
+Event: 0.320 Thread 0x0000000003598000 Exception <a 'java/io/FileNotFoundException'> (0x000000076e1d2d88) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 711]
+Event: 0.345 Thread 0x0000000003598000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x000000076e3e0ac0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\methodHandles.cpp, line 1169]
+Event: 0.347 Thread 0x0000000003598000 Exception <a 'java/lang/NoSuchFieldError': method resolution failed> (0x000000076e3edec0) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\methodHandles.cpp, line 1169]
+Event: 0.372 Thread 0x0000000003598000 Exception <a 'java/lang/ClassNotFoundException': sun/dc/DuctusRenderingEngine> (0x000000076e485be8) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 217]
+Event: 0.374 Thread 0x0000000003598000 Implicit null exception at 0x00000000037bd4a2 to 0x00000000037bd681
+Event: 0.384 Thread 0x0000000003598000 Exception <a 'java/io/FileNotFoundException'> (0x000000076e499400) thrown at [C:\ojdkbuild\lookaside\java-1.8.0-openjdk\hotspot\src\share\vm\prims\jni.cpp, line 711]
+
+Events (250 events):
+Event: 0.501 loading class sun/reflect/UnsafeQualifiedStaticLongFieldAccessorImpl done
+Event: 0.501 loading class sun/reflect/MethodAccessorGenerator
+Event: 0.501 loading class sun/reflect/AccessorGenerator
+Event: 0.501 loading class sun/reflect/ClassFileConstants
+Event: 0.501 loading class sun/reflect/ClassFileConstants done
+Event: 0.501 loading class sun/reflect/AccessorGenerator done
+Event: 0.501 loading class sun/reflect/MethodAccessorGenerator done
+Event: 0.501 loading class sun/reflect/ByteVectorFactory
+Event: 0.501 loading class sun/reflect/ByteVectorFactory done
+Event: 0.501 loading class sun/reflect/ByteVectorImpl
+Event: 0.501 loading class sun/reflect/ByteVector
+Event: 0.501 loading class sun/reflect/ByteVector done
+Event: 0.501 loading class sun/reflect/ByteVectorImpl done
+Event: 0.501 loading class sun/reflect/ClassFileAssembler
+Event: 0.501 loading class sun/reflect/ClassFileAssembler done
+Event: 0.501 loading class sun/reflect/UTF8
+Event: 0.501 loading class sun/reflect/UTF8 done
+Event: 0.502 loading class sun/reflect/Label
+Event: 0.502 loading class sun/reflect/Label done
+Event: 0.502 loading class sun/reflect/Label$PatchInfo
+Event: 0.502 loading class sun/reflect/Label$PatchInfo done
+Event: 0.502 loading class sun/reflect/MethodAccessorGenerator$1
+Event: 0.502 loading class sun/reflect/MethodAccessorGenerator$1 done
+Event: 0.502 loading class sun/reflect/ClassDefiner
+Event: 0.502 loading class sun/reflect/ClassDefiner done
+Event: 0.502 loading class sun/reflect/ClassDefiner$1
+Event: 0.502 loading class sun/reflect/ClassDefiner$1 done
+Event: 0.502 loading class sun/reflect/SerializationConstructorAccessorImpl
+Event: 0.502 loading class sun/reflect/SerializationConstructorAccessorImpl done
+Event: 0.502 loading class sun/reflect/BootstrapConstructorAccessorImpl
+Event: 0.502 loading class sun/reflect/BootstrapConstructorAccessorImpl done
+Event: 0.502 loading class java/io/ObjectOutputStream
+Event: 0.502 loading class java/io/ObjectOutput
+Event: 0.502 loading class java/io/ObjectOutput done
+Event: 0.503 loading class java/io/ObjectOutputStream done
+Event: 0.503 loading class java/lang/CloneNotSupportedException
+Event: 0.503 loading class java/lang/CloneNotSupportedException done
+Event: 0.503 loading class java/io/ObjectStreamClass$ClassDataSlot
+Event: 0.503 loading class java/io/ObjectStreamClass$ClassDataSlot done
+Event: 0.503 loading class sun/util/calendar/BaseCalendar$Date
+Event: 0.503 loading class sun/util/calendar/CalendarDate
+Event: 0.503 loading class sun/util/calendar/CalendarDate done
+Event: 0.503 loading class sun/util/calendar/BaseCalendar$Date done
+Event: 0.503 loading class java/time/Instant
+Event: 0.503 loading class java/time/temporal/Temporal
+Event: 0.504 loading class java/time/temporal/TemporalAccessor
+Event: 0.504 loading class java/time/temporal/TemporalAccessor done
+Event: 0.504 loading class java/time/temporal/Temporal done
+Event: 0.504 loading class java/time/temporal/TemporalAdjuster
+Event: 0.504 loading class java/time/temporal/TemporalAdjuster done
+Event: 0.504 loading class java/time/Instant done
+Event: 0.504 loading class java/io/SerialCallbackContext
+Event: 0.504 loading class java/io/SerialCallbackContext done
+Event: 0.505 loading class com/kh/mini/view/MainFrame$1
+Event: 0.505 loading class com/kh/mini/view/MainFrame$1 done
+Event: 0.505 loading class java/awt/AWTEventMulticaster
+Event: 0.506 loading class java/awt/event/ComponentListener
+Event: 0.506 loading class java/awt/event/ComponentListener done
+Event: 0.506 loading class java/awt/event/ContainerListener
+Event: 0.506 loading class java/awt/event/ContainerListener done
+Event: 0.506 loading class java/awt/event/FocusListener
+Event: 0.506 loading class java/awt/event/FocusListener done
+Event: 0.506 loading class java/awt/event/KeyListener
+Event: 0.506 loading class java/awt/event/KeyListener done
+Event: 0.506 loading class java/awt/event/MouseListener
+Event: 0.506 loading class java/awt/event/MouseListener done
+Event: 0.506 loading class java/awt/event/MouseMotionListener
+Event: 0.506 loading class java/awt/event/MouseMotionListener done
+Event: 0.506 loading class java/awt/event/WindowFocusListener
+Event: 0.506 loading class java/awt/event/WindowFocusListener done
+Event: 0.506 loading class java/awt/event/WindowStateListener
+Event: 0.506 loading class java/awt/event/WindowStateListener done
+Event: 0.506 loading class java/awt/event/ActionListener
+Event: 0.506 loading class java/awt/event/ActionListener done
+Event: 0.506 loading class java/awt/event/ItemListener
+Event: 0.506 loading class java/awt/event/ItemListener done
+Event: 0.506 loading class java/awt/event/AdjustmentListener
+Event: 0.506 loading class java/awt/event/AdjustmentListener done
+Event: 0.506 loading class java/awt/event/TextListener
+Event: 0.506 loading class java/awt/event/TextListener done
+Event: 0.506 loading class java/awt/event/InputMethodListener
+Event: 0.506 loading class java/awt/event/InputMethodListener done
+Event: 0.506 loading class java/awt/event/HierarchyListener
+Event: 0.506 loading class java/awt/event/HierarchyListener done
+Event: 0.506 loading class java/awt/event/HierarchyBoundsListener
+Event: 0.506 loading class java/awt/event/HierarchyBoundsListener done
+Event: 0.506 loading class java/awt/event/MouseWheelListener
+Event: 0.506 loading class java/awt/event/MouseWheelListener done
+Event: 0.506 loading class java/awt/AWTEventMulticaster done
+Event: 0.506 loading class com/kh/mini/view/MainPage
+Event: 0.506 loading class com/kh/mini/view/MainPage done
+Event: 0.507 loading class javax/swing/Icon
+Event: 0.507 loading class javax/swing/Icon done
+Event: 0.507 loading class javax/swing/JLabel
+Event: 0.507 loading class javax/swing/JLabel done
+Event: 0.507 loading class javax/swing/JButton
+Event: 0.507 loading class javax/swing/AbstractButton
+Event: 0.507 loading class java/awt/ItemSelectable
+Event: 0.507 loading class java/awt/ItemSelectable done
+Event: 0.507 loading class javax/swing/AbstractButton done
+Event: 0.507 loading class javax/swing/JButton done
+Event: 0.508 loading class java/awt/Stroke
+Event: 0.508 loading class java/awt/Stroke done
+Event: 0.508 loading class java/awt/Graphics
+Event: 0.508 loading class java/awt/Graphics done
+Event: 0.508 loading class javax/swing/plaf/metal/MetalLabelUI
+Event: 0.508 loading class javax/swing/plaf/basic/BasicLabelUI
+Event: 0.508 loading class javax/swing/plaf/LabelUI
+Event: 0.508 loading class javax/swing/plaf/LabelUI done
+Event: 0.508 loading class javax/swing/plaf/basic/BasicLabelUI done
+Event: 0.508 loading class javax/swing/plaf/metal/MetalLabelUI done
+Event: 0.508 loading class javax/swing/plaf/metal/DefaultMetalTheme$FontDelegate$1
+Event: 0.508 loading class javax/swing/plaf/metal/DefaultMetalTheme$FontDelegate$1 done
+Event: 0.509 loading class javax/swing/plaf/basic/BasicHTML
+Event: 0.509 loading class javax/swing/plaf/basic/BasicHTML done
+Event: 0.509 loading class javax/swing/ImageIcon
+Event: 0.509 loading class javax/swing/ImageIcon done
+Event: 0.509 loading class javax/swing/ImageIcon$1
+Event: 0.509 loading class javax/swing/ImageIcon$1 done
+Event: 0.509 loading class javax/swing/ImageIcon$2
+Event: 0.509 loading class javax/swing/ImageIcon$2 done
+Event: 0.509 loading class javax/swing/ImageIcon$2$1
+Event: 0.509 loading class javax/swing/ImageIcon$2$1 done
+Event: 0.509 loading class java/awt/image/BufferStrategy
+Event: 0.509 loading class java/awt/image/BufferStrategy done
+Event: 0.509 loading class java/awt/dnd/DropTarget
+Event: 0.509 loading class java/awt/dnd/DropTargetListener
+Event: 0.509 loading class java/awt/dnd/DropTargetListener done
+Event: 0.509 loading class java/awt/dnd/DropTarget done
+Event: 0.509 loading class sun/awt/EventQueueItem
+Event: 0.509 loading class sun/awt/EventQueueItem done
+Event: 0.509 loading class javax/accessibility/AccessibleContext
+Event: 0.509 loading class javax/accessibility/AccessibleContext done
+Event: 0.509 loading class sun/reflect/UnsafeObjectFieldAccessorImpl
+Event: 0.509 loading class sun/reflect/UnsafeObjectFieldAccessorImpl done
+Event: 0.509 loading class java/awt/MediaTracker
+Event: 0.510 loading class java/awt/MediaTracker done
+Event: 0.510 loading class sun/misc/SoftCache$ValueCell
+Event: 0.510 loading class sun/misc/SoftCache$ValueCell done
+Event: 0.510 loading class sun/awt/image/FileImageSource
+Event: 0.510 loading class sun/awt/image/InputStreamImageSource
+Event: 0.510 loading class java/awt/image/ImageProducer
+Event: 0.510 loading class java/awt/image/ImageProducer done
+Event: 0.510 loading class sun/awt/image/ImageFetchable
+Event: 0.510 loading class sun/awt/image/ImageFetchable done
+Event: 0.510 loading class sun/awt/image/InputStreamImageSource done
+Event: 0.510 loading class sun/awt/image/FileImageSource done
+Event: 0.510 loading class sun/awt/image/ToolkitImage
+Event: 0.510 loading class sun/awt/image/ToolkitImage done
+Event: 0.510 loading class javax/swing/ImageIcon$3
+Event: 0.510 loading class javax/swing/ImageIcon$3 done
+Event: 0.510 loading class java/awt/ImageMediaEntry
+Event: 0.510 loading class java/awt/MediaEntry
+Event: 0.510 loading class java/awt/MediaEntry done
+Event: 0.510 loading class java/awt/ImageMediaEntry done
+Event: 0.510 loading class sun/awt/image/MultiResolutionToolkitImage
+Event: 0.510 loading class sun/awt/image/MultiResolutionImage
+Event: 0.510 loading class sun/awt/image/MultiResolutionImage done
+Event: 0.510 loading class sun/awt/image/MultiResolutionToolkitImage done
+Event: 0.510 loading class sun/awt/image/ImageRepresentation
+Event: 0.510 loading class java/awt/image/ImageConsumer
+Event: 0.510 loading class java/awt/image/ImageConsumer done
+Event: 0.510 loading class sun/awt/image/ImageWatched
+Event: 0.511 loading class sun/awt/image/ImageWatched done
+Event: 0.511 loading class sun/awt/image/ImageRepresentation done
+Event: 0.511 loading class sun/awt/image/ImageWatched$Link
+Event: 0.511 loading class sun/awt/image/ImageWatched$Link done
+Event: 0.511 loading class sun/awt/image/ImageWatched$WeakLink
+Event: 0.511 loading class sun/awt/image/ImageWatched$WeakLink done
+Event: 0.511 loading class sun/awt/image/ImageWatched$AccWeakReference
+Event: 0.511 loading class sun/awt/image/ImageWatched$AccWeakReference done
+Event: 0.511 loading class sun/awt/image/ImageConsumerQueue
+Event: 0.511 loading class sun/awt/image/ImageConsumerQueue done
+Event: 0.511 loading class sun/awt/image/ImageFetcher
+Event: 0.511 loading class sun/awt/image/ImageFetcher done
+Event: 0.511 loading class sun/awt/image/FetcherInfo
+Event: 0.511 loading class sun/awt/image/FetcherInfo done
+Event: 0.511 loading class sun/awt/image/ImageFetcher$1
+Event: 0.511 loading class sun/awt/image/ImageFetcher$1 done
+Event: 0.511 Thread 0x000000001fae0800 Thread added: 0x000000001fae0800
+Event: 0.512 loading class sun/awt/image/PNGImageDecoder
+Event: 0.512 loading class sun/awt/image/ImageDecoder
+Event: 0.512 loading class sun/awt/image/ImageDecoder done
+Event: 0.512 loading class sun/awt/image/PNGImageDecoder done
+Event: 0.513 loading class sun/awt/image/PNGFilterInputStream
+Event: 0.513 loading class sun/awt/image/PNGFilterInputStream done
+Event: 0.515 loading class java/awt/image/DataBufferInt
+Event: 0.515 loading class java/awt/image/DataBufferInt done
+Event: 0.515 loading class sun/awt/image/IntegerInterleavedRaster
+Event: 0.515 loading class sun/awt/image/IntegerInterleavedRaster done
+Event: 0.529 loading class java/awt/image/ReplicateScaleFilter
+Event: 0.530 loading class java/awt/image/ImageFilter
+Event: 0.530 loading class java/awt/image/ImageFilter done
+Event: 0.530 Executing VM operation: Deoptimize
+Event: 0.530 Executing VM operation: Deoptimize done
+Event: 0.530 loading class java/awt/image/ReplicateScaleFilter done
+Event: 0.530 loading class java/awt/image/FilteredImageSource
+Event: 0.530 loading class java/awt/image/FilteredImageSource done
+Event: 0.538 Thread 0x000000001fae0800 DEOPT PACKING pc=0x000000000380e805 sp=0x000000002641ec50
+Event: 0.538 Thread 0x000000001fae0800 DEOPT UNPACKING pc=0x00000000036971d0 sp=0x000000002641ea60 mode 0
+Event: 0.554 Thread 0x000000001fae0800 Uncommon trap: trap_request=0xffffff86 fr.pc=0x0000000003834e44
+Event: 0.554 Thread 0x000000001fae0800 DEOPT PACKING pc=0x0000000003834e44 sp=0x000000002641f130
+Event: 0.554 Thread 0x000000001fae0800 DEOPT UNPACKING pc=0x000000000369557b sp=0x000000002641f078 mode 2
+Event: 0.623 Thread 0x000000001fae0800 Uncommon trap: trap_request=0xffffff65 fr.pc=0x0000000003848f58
+Event: 0.623 Thread 0x000000001fae0800 DEOPT PACKING pc=0x0000000003848f58 sp=0x000000002641eec0
+Event: 0.623 Thread 0x000000001fae0800 DEOPT UNPACKING pc=0x000000000369557b sp=0x000000002641ee58 mode 2
+Event: 0.623 loading class javax/swing/DefaultButtonModel
+Event: 0.624 loading class javax/swing/ButtonModel
+Event: 0.624 loading class javax/swing/ButtonModel done
+Event: 0.624 loading class javax/swing/DefaultButtonModel done
+Event: 0.624 loading class javax/swing/AbstractButton$Handler
+Event: 0.624 loading class javax/swing/event/ChangeListener
+Event: 0.624 loading class javax/swing/event/ChangeListener done
+Event: 0.624 loading class javax/swing/AbstractButton$Handler done
+Event: 0.624 loading class javax/swing/plaf/metal/MetalButtonUI
+Event: 0.624 loading class javax/swing/plaf/basic/BasicButtonUI
+Event: 0.624 loading class javax/swing/plaf/ButtonUI
+Event: 0.624 loading class javax/swing/plaf/ButtonUI done
+Event: 0.624 loading class javax/swing/plaf/basic/BasicButtonUI done
+Event: 0.624 loading class javax/swing/plaf/metal/MetalButtonUI done
+Event: 0.625 loading class javax/swing/plaf/metal/MetalBorders
+Event: 0.625 loading class javax/swing/plaf/metal/MetalBorders done
+Event: 0.625 loading class javax/swing/plaf/BorderUIResource$CompoundBorderUIResource
+Event: 0.625 loading class javax/swing/border/CompoundBorder
+Event: 0.625 loading class javax/swing/border/CompoundBorder done
+Event: 0.625 loading class javax/swing/plaf/BorderUIResource$CompoundBorderUIResource done
+Event: 0.625 loading class javax/swing/plaf/metal/MetalBorders$ButtonBorder
+Event: 0.625 loading class javax/swing/plaf/metal/MetalBorders$ButtonBorder done
+Event: 0.625 loading class javax/swing/plaf/basic/BasicBorders$MarginBorder
+Event: 0.625 loading class javax/swing/plaf/basic/BasicBorders$MarginBorder done
+Event: 0.625 loading class javax/swing/plaf/basic/BasicButtonListener
+Event: 0.625 loading class javax/swing/plaf/basic/BasicButtonListener done
+Event: 0.625 loading class javax/swing/event/AncestorListener
+Event: 0.625 loading class javax/swing/event/AncestorListener done
+Event: 0.625 loading class java/beans/VetoableChangeListener
+Event: 0.625 loading class java/beans/VetoableChangeListener done
+Event: 0.625 loading class com/kh/mini/view/MainPage$GotoEnterCarPageListener
+Event: 0.625 loading class com/kh/mini/view/MainPage$GotoEnterCarPageListener done
+Event: 0.626 loading class com/kh/mini/view/EnterCarPage
+Event: 0.626 loading class com/kh/mini/view/EnterCarPage done
+Event: 0.628 Thread 0x000000001fae0800 Uncommon trap: trap_request=0xffffff86 fr.pc=0x0000000003852af4
+Event: 0.628 Thread 0x000000001fae0800 DEOPT PACKING pc=0x0000000003852af4 sp=0x000000002641f0d0
+Event: 0.628 Thread 0x000000001fae0800 DEOPT UNPACKING pc=0x000000000369557b sp=0x000000002641f068 mode 2
+Event: 0.661 Thread 0x000000001fae0800 Uncommon trap: trap_request=0xffffffe4 fr.pc=0x000000000385ae94
+Event: 0.661 Thread 0x000000001fae0800 DEOPT PACKING pc=0x000000000385ae94 sp=0x000000002641eef0
+Event: 0.661 Thread 0x000000001fae0800 DEOPT UNPACKING pc=0x000000000369557b sp=0x000000002641ed40 mode 2
+Event: 0.695 loading class com/kh/mini/view/MainPage$GotoExitCarPageListener
+Event: 0.695 loading class com/kh/mini/view/MainPage$GotoExitCarPageListener done
+Event: 0.696 loading class com/kh/mini/view/ExitCarPage
+Event: 0.696 loading class com/kh/mini/view/ExitCarPage done
+
+
+Dynamic libraries:
+0x00007ff6dc170000 - 0x00007ff6dc1b8000 	C:\Program Files\Java\openJDK1.8\bin\javaw.exe
+0x00007ffddcbd0000 - 0x00007ffddcdc5000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffddc510000 - 0x00007ffddc5cd000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffdda340000 - 0x00007ffdda609000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffddacf0000 - 0x00007ffddad9c000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffddbb90000 - 0x00007ffddbc2e000 	C:\Windows\System32\msvcrt.dll
+0x00007ffddac40000 - 0x00007ffddacdb000 	C:\Windows\System32\sechost.dll
+0x00007ffddada0000 - 0x00007ffddaeca000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffddc630000 - 0x00007ffddc7d0000 	C:\Windows\System32\USER32.dll
+0x00007ffdda610000 - 0x00007ffdda632000 	C:\Windows\System32\win32u.dll
+0x00007ffddcb50000 - 0x00007ffddcb7a000 	C:\Windows\System32\GDI32.dll
+0x00007ffdda640000 - 0x00007ffdda74b000 	C:\Windows\System32\gdi32full.dll
+0x00007ffdda7e0000 - 0x00007ffdda87d000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffdda8d0000 - 0x00007ffdda9d0000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffdc7d50000 - 0x00007ffdc7fea000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.1110_none_60b5254171f9507e\COMCTL32.dll
+0x00007ffddaed0000 - 0x00007ffddaf00000 	C:\Windows\System32\IMM32.DLL
+0x0000000072680000 - 0x0000000072752000 	C:\Program Files\Java\openJDK1.8\jre\bin\msvcr100.dll
+0x0000000072760000 - 0x000000007308b000 	C:\Program Files\Java\openJDK1.8\jre\bin\server\jvm.dll
+0x00007ffddace0000 - 0x00007ffddace8000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffdd4920000 - 0x00007ffdd4929000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffdd2070000 - 0x00007ffdd207a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffddafb0000 - 0x00007ffddb01b000 	C:\Windows\System32\WS2_32.dll
+0x00007ffdcf540000 - 0x00007ffdcf567000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffdd1bd0000 - 0x00007ffdd1bdf000 	C:\Program Files\Java\openJDK1.8\jre\bin\verify.dll
+0x00007ffdc9b60000 - 0x00007ffdc9b89000 	C:\Program Files\Java\openJDK1.8\jre\bin\java.dll
+0x00007ffdcbdc0000 - 0x00007ffdcbdd6000 	C:\Program Files\Java\openJDK1.8\jre\bin\zip.dll
+0x00007ffddb020000 - 0x00007ffddb75f000 	C:\Windows\System32\SHELL32.dll
+0x00007ffdd81e0000 - 0x00007ffdd8971000 	C:\Windows\SYSTEM32\windows.storage.dll
+0x00007ffddb760000 - 0x00007ffddbab5000 	C:\Windows\System32\combase.dll
+0x00007ffdd9cb0000 - 0x00007ffdd9cdc000 	C:\Windows\SYSTEM32\Wldp.dll
+0x00007ffddaf00000 - 0x00007ffddafae000 	C:\Windows\System32\SHCORE.dll
+0x00007ffddcaf0000 - 0x00007ffddcb45000 	C:\Windows\System32\shlwapi.dll
+0x00007ffdda250000 - 0x00007ffdda26f000 	C:\Windows\SYSTEM32\profapi.dll
+0x00007ffda1f50000 - 0x00007ffda20fc000 	C:\Program Files\Java\openJDK1.8\jre\bin\awt.dll
+0x00007ffddbac0000 - 0x00007ffddbb8d000 	C:\Windows\System32\OLEAUT32.dll
+0x00007ffdd7750000 - 0x00007ffdd77e0000 	C:\Windows\SYSTEM32\apphelp.dll
+0x00007ffdd7b70000 - 0x00007ffdd7b9f000 	C:\Windows\system32\DWMAPI.DLL
+0x00007ffdd7880000 - 0x00007ffdd791e000 	C:\Windows\system32\uxtheme.dll
+0x00007ffdba840000 - 0x00007ffdba965000 	C:\Windows\system32\opengl32.dll
+0x00007ffdcc2c0000 - 0x00007ffdcc2ec000 	C:\Windows\SYSTEM32\GLU32.dll
+0x00007ffddbf80000 - 0x00007ffddc095000 	C:\Windows\System32\MSCTF.dll
+0x00007ffddc8e0000 - 0x00007ffddca0a000 	C:\Windows\System32\ole32.dll
+0x00007ffdd8c20000 - 0x00007ffdd8c32000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffdda750000 - 0x00007ffdda7d3000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffd9b6c0000 - 0x00007ffd9b88e000 	C:\Windows\system32\d3d9.dll
+0x00007ffdce5f0000 - 0x00007ffdce7cb000 	C:\Windows\System32\DriverStore\FileRepository\u0361383.inf_amd64_cfccffda602342c4\B361368\aticfx64.dll
+0x00007ffdcc1a0000 - 0x00007ffdcc1d3000 	C:\Windows\System32\DriverStore\FileRepository\u0361383.inf_amd64_cfccffda602342c4\B361368\atiu9p64.dll
+0x00007ffd95aa0000 - 0x00007ffd96736000 	C:\Windows\System32\DriverStore\FileRepository\u0361383.inf_amd64_cfccffda602342c4\B361368\atiumd64.dll
+0x00007ffdd7ff0000 - 0x00007ffdd81d4000 	C:\Windows\SYSTEM32\dbghelp.dll
+0x00007ffdc6500000 - 0x00007ffdc652c000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x0000000071800000 - 0x000000007267e000 	C:\Windows\System32\DriverStore\FileRepository\u0361383.inf_amd64_cfccffda602342c4\B361368\atiumd6a.dll
+0x00007ffdda310000 - 0x00007ffdda337000 	C:\Windows\System32\bcrypt.dll
+0x00007ffdda180000 - 0x00007ffdda1cb000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffdda160000 - 0x00007ffdda172000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffdce580000 - 0x00007ffdce5af000 	C:\Windows\SYSTEM32\amdihk64.dll
+0x00007ffdcf4a0000 - 0x00007ffdcf4db000 	C:\Windows\SYSTEM32\dxcore.dll
+0x00007ffdda880000 - 0x00007ffdda8ce000 	C:\Windows\System32\cfgmgr32.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=MS949 
+java_command: com.kh.mini.run.Run
+java_class_path (initial): C:\Users\Moon\eclipse-workspace\kh_miniProject\bin
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\openJDK1.8
+PATH=C:/Program Files/Java/openJDK1.8/bin/../jre/bin/server;C:/Program Files/Java/openJDK1.8/bin/../jre/bin;C:/Program Files/Java/openJDK1.8/bin/../jre/lib/amd64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\Java\openJDK1.8\bin;C:\Users\Moon\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\Moon\AppData\Local\Programs\Python\Python39\;C:\Users\Moon\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Bandizip\;C:\Users\Moon\OneDrive\바탕 화면\eclipse;
+USERNAME=Moon
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 19041 (10.0.19041.1023)
+
+CPU:total 8 (initial active 8) (8 cores per cpu, 1 threads per core) family 23 model 96 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv, bmi1
+
+Memory: 4k page, physical 16111964k(5291564k free), swap 47354328k(4260k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.292-b10) for windows-amd64 JRE (1.8.0_292-b10), built on May  1 2021 15:27:06 by "Administrator" with MS VC++ 10.0 (VS2010)
+
+time: Thu Aug 05 20:58:09 2021
+timezone: 대한민국 표준시
+elapsed time: 0.744571 seconds (0d 0h 0m 0s)
+
